@@ -1,10 +1,14 @@
 package com.example.biblioteca.model;
 
+import java.util.List;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -21,11 +25,13 @@ public class Editora {
   @Column(length = 100)
   private String endereco;
 
+  @OneToMany(mappedBy = "editora", fetch = FetchType.LAZY)
+  private List<Livro> livros;
+
   public Editora() {
   }
 
-  public Editora(Integer id, String nome, String endereco) {
-    this.id = id;
+  public Editora(String nome, String endereco) {
     this.nome = nome;
     this.endereco = endereco;
   }
@@ -54,12 +60,21 @@ public class Editora {
     this.endereco = endereco;
   }
 
+  public List<Livro> getLivros() {
+    return livros;
+  }
+
+  public void setLivros(List<Livro> livros) {
+    this.livros = livros;
+  }
+
   @Override
   public String toString() {
     return "Editora{" +
             "id=" + id +
             ", nome='" + nome + '\'' +
             ", endereco='" + endereco + '\'' +
+            // ", livros=" + livros +
             '}';
   }
 
@@ -69,45 +84,41 @@ public class Editora {
     int result = 1;
     result = prime * result + ((endereco == null) ? 0 : endereco.hashCode());
     result = prime * result + ((id == null) ? 0 : id.hashCode());
+    // result = prime * result + ((livros == null) ? 0 : livros.hashCode());
     result = prime * result + ((nome == null) ? 0 : nome.hashCode());
     return result;
   }
 
   @Override
   public boolean equals(Object obj) {
-    if (this == obj) {
+    if (this == obj)
       return true;
-    }
-    if (obj == null) {
+    if (obj == null)
       return false;
-    }
-    if (getClass() != obj.getClass()) {
+    if (getClass() != obj.getClass())
       return false;
-    }
     Editora other = (Editora) obj;
     if (endereco == null) {
-      if (other.endereco != null) {
+      if (other.endereco != null)
         return false;
-      }
-    } else if (!endereco.equals(other.endereco)) {
+    } else if (!endereco.equals(other.endereco))
       return false;
-    }
     if (id == null) {
-      if (other.id != null) {
+      if (other.id != null)
         return false;
-      }
-    } else if (!id.equals(other.id)) {
+    } else if (!id.equals(other.id))
       return false;
-    }
+    // if (livros == null) {
+    //   if (other.livros != null)
+    //     return false;
+    // } else if (!livros.equals(other.livros))
+    //   return false;
     if (nome == null) {
-      if (other.nome != null) {
+      if (other.nome != null)
         return false;
-      }
-    } else if (!nome.equals(other.nome)) {
+    } else if (!nome.equals(other.nome))
       return false;
-    }
     return true;
   }
-
 
 }
