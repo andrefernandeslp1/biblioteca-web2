@@ -31,4 +31,5 @@ public class AutorService {
       return autor;
     }).orElseThrow(() -> new RuntimeException("Autor não encontrado"));
   
+  }
 }
