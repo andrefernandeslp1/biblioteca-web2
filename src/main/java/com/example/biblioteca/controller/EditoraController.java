@@ -25,8 +25,10 @@ public class EditoraController {
   @RequestMapping("/showForm")
   public String showFormEditora(Model model) {
     
+    Editora editora = new Editora();
+    model.addAttribute("editora", editora);
 
-    return "editora/formEditora";
+    return "index";
   }
 
   @RequestMapping("/addEditora")

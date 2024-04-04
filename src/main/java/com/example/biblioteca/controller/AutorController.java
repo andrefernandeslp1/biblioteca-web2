@@ -24,11 +24,22 @@ public class AutorController {
   @Autowired
   LivroService livroService;
 
+  // @RequestMapping("/showForm")
+  // public String showFormAutor(Model model) {
+    
+
+  //   return "autor/formAutor";
+  // }
+
   @RequestMapping("/showForm")
   public String showFormAutor(Model model) {
     
+    Autor autor = new Autor();
+    model.addAttribute("autor", autor);
+    String showDiv = "formAutor";
+    model.addAttribute("showDiv", showDiv);
 
-    return "autor/formAutor";
+    return "index";
   }
   
   @RequestMapping("/addAutor")
@@ -42,7 +53,9 @@ public class AutorController {
 
     List<Autor> autores = autorService.getListaAutores();
     model.addAttribute("autores", autores);
-    return "autor/listaAutores";
+    String showDiv = "listaAutores";
+    model.addAttribute("showDiv", showDiv);
+    return "index";
   }
 
   @RequestMapping("/deletarAutor")

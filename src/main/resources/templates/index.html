@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BiblioTech-Index</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1em;
+        }
+        .menu {
+            display: flex;
+            justify-content: center;
+            background-color: #f1f1f1;
+            padding: 1em;
+        }
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        .conteudo {
+            padding: 1em;
+        }
+        .dropbtn {
+            background-color: #f1f1f1;
+            color: black;
+            padding: 16px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+        }
+        a {
+          color: inherit;      /* Reset color */
+          text-decoration: none; /* Remove underline */
+          background-color: transparent; /* Remove background */
+        }
+        table {
+            /* width: 100%; */
+            border-collapse: collapse;
+        }
+        th, td {
+            /* border: 1px solid #ddd; */
+            padding: 10px 20px 10px 20px;
+            text-align: left;
+        }
+        th {
+            /* background-color: #f2f2f2; */
+        }
+        tr:nth-child(even) {
+            /* background-color: #f2f2f2; */
+        }
+
+
+    </style>
+    
+</head>
+<header>
+    <a href="/index"><h1>BiblioTech</h1></a>
+</header>
+<body>
+
+  <div class="menu">
+    <div class="dropdown">
+        <button class="dropbtn">Autor</button>
+        <div class="dropdown-content">
+            <a href="/autor/showForm">Cadastrar Autor</a>
+            <a href="/autor/getListaAutores">Listar Autores</a>
+        </div>
+    </div>
+    <div class="dropdown">
+        <button class="dropbtn">Editora</button>
+        <div class="dropdown-content">
+            <a href="/editora/showForm">Cadastrar Editora</a>
+            <a href="/editora/getListaEditoras">Listar Editoras</a>
+        </div>
+    </div>
+    <div class="dropdown">
+        <button class="dropbtn">Emprestimo</button>
+        <div class="dropdown-content">
+            <a href="/emprestimo/showForm">Fazer Emprestimo</a>
+            <a href="/emprestimo/getListaEmprestimos">Listar Emprestimos</a>
+        </div>
+    </div>
+    <div class="dropdown">
+        <button class="dropbtn">Livro</button>
+        <div class="dropdown-content">
+            <a href="/livro/showForm">Cadastrar Livro</a>
+            <a href="/livro/getListaLivros">Listar Livros</a>
+        </div>
+    </div>
+    <div class="dropdown">
+        <button class="dropbtn">Usuario</button>
+        <div class="dropdown-content">
+            <a href="/usuario/showForm">Cadastrar Usuario</a>
+            <a href="/usuario/getListaUsuarios">Listar Usuarios</a>
+        </div>
+    </div>
+    <div class="dropdown">
+        <button class="dropbtn">Relatorio</button>
+        <div class="dropdown-content">
+            <a href="/relatorio">Relatorio</a>
+        </div>
+    </div>
+  </div>
+    
+  <div class="conteudo">
+
+    <div th:switch="${showDiv}">
+      <div th:case="formAutor">
+        <form action="#" th:action="@{/autor/addAutor}" th:object="${autor}" method="post">
+          <label for="nome">Nome:</label>
+          <input type="text" id="nome" th:field="*{nome}" />
+          <label for="nacionalidade">Nacionalidade:</label>
+          <input type="text" id="nacionalidade" th:field="*{nacionalidade}" />
+          <button type="submit">Salvar</button>
+        </form>
+      </div>
+      <div th:case="listaAutores">
+        <table>
+          <tr>
+            <th>Id</th>
+            <th>Nome</th>
+            <th>Nacionalidade</th>
+          </tr>
+          <tr th:each="autor : ${autores}">
+            <td th:text="${autor.id}"></td>
+            <td th:text="${autor.nome}"></td>
+            <td th:text="${autor.nacionalidade}"></td>
+          </tr>
+        </table>
+      </div>
+      <div th:case="*">
+        <h2>Bem vindo ao BiblioTech</h2>
+        <p>Escolha uma opção no menu acima para começar</p>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
