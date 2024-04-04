@@ -150,11 +150,18 @@
             <th>Id</th>
             <th>Nome</th>
             <th>Nacionalidade</th>
+            <th>Livros</th>
           </tr>
           <tr th:each="autor : ${autores}">
             <td th:text="${autor.id}"></td>
             <td th:text="${autor.nome}"></td>
             <td th:text="${autor.nacionalidade}"></td>
+            <td>
+              <table>
+                <tr th:each="livro : ${autor.livros}">
+                  <td th:text="${livro.titulo}" style="padding-left: 0;"></td>
+                </tr>
+              </table>
           </tr>
         </table>
       </div>
