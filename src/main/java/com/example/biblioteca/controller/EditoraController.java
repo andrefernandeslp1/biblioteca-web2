@@ -42,7 +42,9 @@ public class EditoraController {
 
     List<Editora> editoras = editoraService.getListaEditoras();
     model.addAttribute("editoras", editoras);
-    return "editora/listaEditoras";
+    String showDiv = "listaEditoras";
+    model.addAttribute("showDiv", showDiv);
+    return "index";
   }
 
   @RequestMapping("/deletarEditora")
