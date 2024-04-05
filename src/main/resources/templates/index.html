@@ -96,7 +96,7 @@
     }
 
     .conteudo {
-      padding: 1em;
+      /* padding: 1em; */
     }
 
     .dropbtn {
@@ -118,7 +118,8 @@
     }
 
     .tabela {
-      margin: 20px;
+      margin: 30px;
+
     }
 
     table {
@@ -251,23 +252,29 @@
         <div class="tabela" th:case="listaAutores">
           <table>
             <tr>
-              <th>Id</th>
-              <th>Nome</th>
-              <th>Nacionalidade</th>
-              <th>Livros</th>
+              <th>Lista de Autores</th>
             </tr>
-            <tr th:each="autor : ${autores}">
-              <td th:text="${autor.id}"></td>
-              <td th:text="${autor.nome}"></td>
-              <td th:text="${autor.nacionalidade}"></td>
-              <td>
-                <table>
-                  <tr th:each="livro : ${autor.livros}">
-                    <td th:text="${livro.titulo}" style="padding: 0;"></td>
-                  </tr>
-                </table>
-            </tr>
+            <table>
+              <tr>
+                <th>Id</th>
+                <th>Nome</th>
+                <th>Nacionalidade</th>
+                <th>Livros</th>
+              </tr>
+              <tr th:each="autor : ${autores}">
+                <td th:text="${autor.id}"></td>
+                <td th:text="${autor.nome}"></td>
+                <td th:text="${autor.nacionalidade}"></td>
+                <td>
+                  <table>
+                    <tr th:each="livro : ${autor.livros}">
+                      <td th:text="${livro.titulo}" style="padding: 0; background-color: transparent;"></td>
+                    </tr>
+                  </table>
+              </tr>
+            </table>
           </table>
+            
           <p th:if="${mensagem} != null" th:text="${mensagem}" style="text-align: center; padding: 1em;"></p>
         </div>
 
@@ -285,15 +292,20 @@
         <div class="tabela" th:case="listaEditoras">
           <table>
             <tr>
-              <th>Id</th>
-              <th>Nome</th>
-              <th>Endereço</th>
+              <th>Lista de Editoras</th>
             </tr>
-            <tr th:each="editora : ${editoras}">
-              <td th:text="${editora.id}"></td>
-              <td th:text="${editora.nome}"></td>
-              <td th:text="${editora.endereco}"></td>
-            </tr>
+            <table>
+              <tr>
+                <th>Id</th>
+                <th>Nome</th>
+                <th>Endereço</th>
+              </tr>
+              <tr th:each="editora : ${editoras}">
+                <td th:text="${editora.id}"></td>
+                <td th:text="${editora.nome}"></td>
+                <td th:text="${editora.endereco}"></td>
+              </tr>
+            </table>
           </table>
           <p th:if="${mensagem} != null" th:text="${mensagem}" style="text-align: center; padding: 1em;"></p>
         </div>
@@ -335,27 +347,32 @@
         <div class="tabela" th:case="listaLivros">
           <table>
             <tr>
-              <th>Id</th>
-              <th>Titulo</th>
-              <th>Ano</th>
-              <th>Gênero</th>
-              <th>Editora</th>
-              <th>Autores</th>
+              <th>Lista de Livros</th>
             </tr>
-            <tr th:each="livro : ${livros}">
-              <td th:text="${livro.id}"></td>
-              <td th:text="${livro.titulo}"></td>
-              <td th:text="${livro.ano}"></td>
-              <td th:text="${livro.genero}"></td>
-              <td th:text="${livro.editora.nome}"></td>
-              <td>
-                <table>
-                  <tr th:each="autor : ${livro.autores}">
-                    <td th:text="${autor.nome}" style="padding: 0;"></td>
-                  </tr>
-                </table>
-              </td>
-            </tr>
+            <table>
+              <tr>
+                <th>Id</th>
+                <th>Titulo</th>
+                <th>Ano</th>
+                <th>Gênero</th>
+                <th>Editora</th>
+                <th>Autores</th>
+              </tr>
+              <tr th:each="livro : ${livros}">
+                <td th:text="${livro.id}"></td>
+                <td th:text="${livro.titulo}"></td>
+                <td th:text="${livro.ano}"></td>
+                <td th:text="${livro.genero}"></td>
+                <td th:text="${livro.editora.nome}"></td>
+                <td>
+                  <table>
+                    <tr th:each="autor : ${livro.autores}">
+                      <td th:text="${autor.nome}" style="padding:0; background-color: transparent;"></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
           </table>
           <p th:if="${mensagem} != null" th:text="${mensagem}" style="text-align: center; padding: 1em;"></p>
         </div>
@@ -374,20 +391,25 @@
         <div class="tabela" th:case="listaUsuarios">
           <table>
             <tr>
-              <th>Id</th>
-              <th>Nome</th>
-              <th>Email</th>
+              <th>Lista de Usuários</th>
             </tr>
-            <tr th:each="usuario : ${usuarios}">
-              <td th:text="${usuario.id}"></td>
-              <td th:text="${usuario.nome}"></td>
-              <td th:text="${usuario.email}"></td>
-            </tr>
-          </table>  
+            <table>
+              <tr>
+                <th>Id</th>
+                <th>Nome</th>
+                <th>Email</th>
+              </tr>
+              <tr th:each="usuario : ${usuarios}">
+                <td th:text="${usuario.id}"></td>
+                <td th:text="${usuario.nome}"></td>
+                <td th:text="${usuario.email}"></td>
+              </tr>
+            </table>
+          </table>
           <p th:if="${mensagem} != null" th:text="${mensagem}" style="text-align: center; padding: 1em;"></p>
         </div>
 
-        <div th:case="*">
+        <div th:case="*" style="margin: 30px;">
           <h2>Bem vindo ao BiblioTech
             <img src="/imgs/bibliotech-favicon-black.png" alt="favicon-black" style="height: 25px">
           </h2>
