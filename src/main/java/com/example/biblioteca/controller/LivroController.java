@@ -8,6 +8,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.example.biblioteca.model.Autor;
+import com.example.biblioteca.model.Editora;
 import com.example.biblioteca.model.Livro;
 import com.example.biblioteca.service.AutorService;
 import com.example.biblioteca.service.EditoraService;
@@ -33,14 +35,33 @@ public class LivroController {
   @RequestMapping("/showForm")
   public String showFormLivro(Model model) {
     
+    Livro livro = new Livro();
+    model.addAttribute("livro", livro);
+    List<Autor> autores = autorService.getListaAutores();
+    model.addAttribute("autores", autores);
+    List<Editora> editoras = editoraService.getListaEditoras();
+    model.addAttribute("editoras", editoras);
+    String showDiv = "formLivro";
+    model.addAttribute("showDiv", showDiv);
 
-    return "livro/formLivro";
+    return "index";
   }
 
   @RequestMapping("/addLivro")
   public String addLivro(@ModelAttribute("livro") Livro livro, Model model) {
 
-    return "livro/listaLivros";
+    livroService.salvarLivro(livro);
+    //atribuir livro a autores
+    for (Autor autor : livro.getAutores()) {
+      autor.getLivros().add(livro);
+      autorService.salvarAutor(autor);
+    }
+    List<Livro> livros = livroService.getListaLivros();
+    model.addAttribute("livros", livros);
+    String showDiv = "listaLivros";
+    model.addAttribute("showDiv", showDiv);
+    
+    return "index";
   }
 
   @RequestMapping("/getListaLivros")
@@ -48,7 +69,10 @@ public class LivroController {
 
     List<Livro> livros = livroService.getListaLivros();
     model.addAttribute("livros", livros);
-    return "livro/listaLivros";
+    String showDiv = "listaLivros";
+    model.addAttribute("showDiv", showDiv);
+    
+    return "index";
   }
 
   @RequestMapping("/deletarLivro")

@@ -44,9 +44,9 @@ public class BibliotecaApplication {
       Autor autor2 = new Autor("Shakespeare", "Reino Unido");
       Autor autor3 = new Autor("Machado de Assis", "Brasil");
 
-      Livro livro1 = new Livro("It", "Terror", 1986, editora1);
-      Livro livro2 = new Livro("Hamlet", "Drama", 1600, editora2);
-      Livro livro3 = new Livro("Dom Casmurro", "Romance", 1899, editora3);
+      Livro livro1 = new Livro("It", "Terror", "1986", editora1);
+      Livro livro2 = new Livro("Hamlet", "Drama", "1600", editora2);
+      Livro livro3 = new Livro("Dom Casmurro", "Romance", "1899", editora3);
       
       List<Livro> livros1 = new ArrayList<>();
       livros1.add(livro1);

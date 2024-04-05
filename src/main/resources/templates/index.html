@@ -27,7 +27,7 @@
     body {
       margin: 0;
       padding: 0;
-      /* height: 100vh; */
+      height: 100vh;
       background-image: url("/imgs/pattern-randomized.png");
       background-size: cover;
       background-attachment: fixed;
@@ -36,7 +36,7 @@
     #body-2 {
       margin: auto;
       max-width: 1100px;
-      height: 100vh;
+      /* height: 100vh; */
       min-height: 100%;
       /* font-family: 'Atkinson Hyperlegible', Arial, sans-serif; */
       background-color: rgb(255, 255, 255, .5);
@@ -60,8 +60,8 @@
       padding: 1em;
     }
 
-    #logo {
-      /* filter: drop-shadow(2px 2px 4px 2px rgba(0, 0, 0, 0.5)); */
+    .logo {
+        filter: drop-shadow(2px 2px 4px 2px rgba(0, 0, 0, 0.5));
     }
 
     .dropdown {
@@ -97,7 +97,6 @@
 
     .conteudo {
       padding: 1em;
-      border-radius: 0 0 10px 10px;
     }
 
     .dropbtn {
@@ -137,6 +136,38 @@
     tr:nth-child(even) {
       /* background-color: #f2f2f2; */
     }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      width: 50%;
+      margin: auto;
+      /* centralizar na vertical */
+      /*justify-content: center;*/
+    }
+
+    label {
+      /* margin-top: 10px; */
+    }
+
+    input {
+      padding: 5px;
+      margin-bottom: 20px;
+    }
+
+    select {
+      padding: 5px;
+      margin-bottom: 20px;
+    }
+
+    button {
+      padding: 10px;
+      background-color: #575C5F;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
   </style>
 
 </head>
@@ -147,11 +178,12 @@
   <div id="body-2">
     <header>
       <a href="/index">
-        <img id="logo" src="/imgs/logo-no-background.png" alt="logo" style="width: 300px; padding:20px; ">
+        <img class="logo" src="/imgs/logo-no-background.png" alt="logo" style="width: 300px; padding:20px; ">
       </a>
       <!-- <p>Sistema para Biblioteca</p> -->
       
     </header>
+    
     <div class="menu">
       <div class="dropdown">
         <button class="dropbtn">Autor</button>
@@ -202,6 +234,7 @@
 
         <div th:case="formAutor">
           <form action="#" th:action="@{/autor/addAutor}" th:object="${autor}" method="post">
+            <h2>Cadastrar Autor</h2>
             <label for="nome">Nome:</label>
             <input type="text" id="nome" th:field="*{nome}" />
             <label for="nacionalidade">Nacionalidade:</label>
@@ -232,6 +265,17 @@
           </table>
         </div>
 
+        <div th:case="formEditora">
+          <form action="#" th:action="@{/editora/addEditora}" th:object="${editora}" method="post">
+            <h2>Cadastrar Editora</h2>
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" th:field="*{nome}" />
+            <label for="endereco">Endereço:</label>
+            <input type="text" id="endereco" th:field="*{endereco}" />
+            <button type="submit">Salvar</button>
+          </form>
+        </div>
+
         <div th:case="listaEditoras">
           <table>
             <tr>
@@ -247,9 +291,71 @@
           </table>
         </div>
 
+        <!-- <div th:case="formEmprestimo"></div> -->
+
+        <!-- <div th:case="listaEmprestimos"></div> -->
+
+        <div th:case="formLivro">
+          <form action="#" th:action="@{/livro/addLivro}" th:object="${livro}" method="post">
+            <h2>Cadastrar Livro</h2>
+            <label for="titulo">Titulo:</label>
+            <input type="text" id="titulo" th:field="*{titulo}" />
+            <label for="ano">Ano:</label>
+            <input type="text" id="ano" th:field="*{ano}" />
+            <label for="Gênero">Gênero:</label>
+            <input type="text" id="genero" th:field="*{genero}" />
+            
+            <label for="editora">Editora:</label>
+            <select id="editora" th:field="*{editora}">
+              <option th:each="editora : ${editoras}" th:value="${editora.id}" th:text="${editora.nome}"></option>
+            </select>
+
+            <label for="autor">Autor:</label>
+            <div th:each="autor : ${autores}">
+              <input type="checkbox" th:field="*{autores}" th:value="${autor.id}" />
+              <label th:text="${autor.nome}"></label>
+            </div>
+            <!-- <select id="autor" th:field="*{autor}">
+              <option th:each="autor : ${autores}" th:value="${autor.id}" th:text="${autor.nome}"></option>
+            </select> -->
+            
+            <button type="submit">Salvar</button>
+          </form>
+        </div>
+          
+        <div th:case="listaLivros">
+          <table>
+            <tr>
+              <th>Id</th>
+              <th>Titulo</th>
+              <th>Ano</th>
+              <th>Gênero</th>
+              <th>Editora</th>
+              <th>Autores</th>
+            </tr>
+            <tr th:each="livro : ${livros}">
+              <td th:text="${livro.id}"></td>
+              <td th:text="${livro.titulo}"></td>
+              <td th:text="${livro.ano}"></td>
+              <td th:text="${livro.genero}"></td>
+              <td th:text="${livro.editora.nome}"></td>
+              <td>
+                <table>
+                  <tr th:each="autor : ${livro.autores}">
+                    <td th:text="${autor.nome}" style="padding: 0;"></td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </div>
+
         <div th:case="*">
-          <h2>Bem vindo ao BiblioTech</h2>
-          <p>Escolha uma opção no menu acima para começar</p>
+          <h2>Bem vindo ao BiblioTech
+            <img src="/imgs/bibliotech-favicon-black.png" alt="favicon-black" style="height: 25px">
+          </h2>
+          <p>Sistema para administração de bibliotecas.</p>
+          <p>Escolha uma opção no menu acima para começar.</p>
         </div>
       </div>
     </div>

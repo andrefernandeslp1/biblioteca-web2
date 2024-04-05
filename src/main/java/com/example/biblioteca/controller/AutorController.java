@@ -45,7 +45,25 @@ public class AutorController {
   @RequestMapping("/addAutor")
   public String addAutor(@ModelAttribute("autor") Autor autor, Model model) {
 
-    return "autor/listaAutores";
+    // autorService.salvarAutor(autor);
+    // List<Autor> autores = autorService.getListaAutores();
+    // model.addAttribute("autores", autores);
+    List<Autor> autoresVerificar = autorService.getListaAutores(); 
+    for (Autor autorVerificar : autoresVerificar) {
+      if (autorVerificar.getNome().equals(autor.getNome())) {
+        String showDiv = "listaAutores";
+        model.addAttribute("showDiv", showDiv);
+        model.addAttribute("autores", autoresVerificar);
+        return "index";
+      }
+    }
+    autorService.salvarAutor(autor);
+    List<Autor> autores = autorService.getListaAutores();
+    model.addAttribute("autores", autores);
+    String showDiv = "listaAutores";
+    model.addAttribute("showDiv", showDiv);
+
+    return "index";
   }
 
   @RequestMapping("/getListaAutores")
@@ -55,6 +73,7 @@ public class AutorController {
     model.addAttribute("autores", autores);
     String showDiv = "listaAutores";
     model.addAttribute("showDiv", showDiv);
+    
     return "index";
   }
 

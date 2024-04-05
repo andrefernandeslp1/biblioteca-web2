@@ -31,7 +31,7 @@ public class Livro {
   private String genero;
 
   @Column(length = 100)
-  private Integer ano;
+  private String ano;
 
   @ManyToOne
   @JoinColumn(name = "id_editora")
@@ -49,7 +49,7 @@ public class Livro {
   public Livro() {
   }
 
-  public Livro(String titulo, String genero, Integer ano, Editora editora) {
+  public Livro(String titulo, String genero, String ano, Editora editora) {
     this.titulo = titulo;
     this.genero = genero;
     this.ano = ano;
@@ -80,11 +80,11 @@ public class Livro {
     this.genero = genero;
   }
 
-  public Integer getAno() {
+  public String getAno() {
     return ano;
   }
 
-  public void setAno(Integer ano) {
+  public void setAno(String ano) {
     this.ano = ano;
   }
 

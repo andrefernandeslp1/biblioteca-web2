@@ -27,6 +27,8 @@ public class EditoraController {
     
     Editora editora = new Editora();
     model.addAttribute("editora", editora);
+    String showDiv = "formEditora";
+    model.addAttribute("showDiv", showDiv);
 
     return "index";
   }
@@ -34,7 +36,13 @@ public class EditoraController {
   @RequestMapping("/addEditora")
   public String addEditora(@ModelAttribute("editora") Editora editora, Model model) {
 
-    return "editora/listaEditoras";
+    editoraService.salvarEditora(editora);
+    List<Editora> editoras = editoraService.getListaEditoras();
+    model.addAttribute("editoras", editoras);
+    String showDiv = "listaEditoras";
+    model.addAttribute("showDiv", showDiv);
+
+    return "index";
   }
 
   @RequestMapping("/getListaEditoras")
@@ -44,6 +52,7 @@ public class EditoraController {
     model.addAttribute("editoras", editoras);
     String showDiv = "listaEditoras";
     model.addAttribute("showDiv", showDiv);
+
     return "index";
   }
 
