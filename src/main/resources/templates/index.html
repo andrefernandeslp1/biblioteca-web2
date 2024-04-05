@@ -317,14 +317,16 @@
               <option th:each="editora : ${editoras}" th:value="${editora.id}" th:text="${editora.nome}"></option>
             </select>
 
+            <!-- <label for="autor">Autor:</label>
+            <div th:each="autor : ${autores}">
+              <input type="checkbox" th:name="autorIds" th:value="${autor.id}" th:text="${autor.nome}"/>
+            </div> -->
+
             <label for="autor">Autor:</label>
             <div th:each="autor : ${autores}">
               <input type="checkbox" th:field="*{autores}" th:value="${autor.id}" />
               <label th:text="${autor.nome}"></label>
             </div>
-            <!-- <select id="autor" th:field="*{autor}">
-              <option th:each="autor : ${autores}" th:value="${autor.id}" th:text="${autor.nome}"></option>
-            </select> -->
             
             <button type="submit">Salvar</button>
           </form>

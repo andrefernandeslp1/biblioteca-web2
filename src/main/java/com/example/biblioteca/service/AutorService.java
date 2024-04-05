@@ -30,6 +30,8 @@ public class AutorService {
     return autorRepository.findById(id).map(autor -> {
       return autor;
     }).orElseThrow(() -> new RuntimeException("Autor não encontrado"));
-  
   }
+
+  public List<Autor> getAutoresByIds(List<Integer> ids){
+    return autorRepository.findAllById(ids);}
 }

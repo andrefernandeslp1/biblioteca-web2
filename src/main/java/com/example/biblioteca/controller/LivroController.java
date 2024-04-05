@@ -64,10 +64,10 @@ public class LivroController {
 
     livroService.salvarLivro(livro);
     //atribuir livro a autores
-    for (Autor autor : livro.getAutores()) {
-      autor.getLivros().add(livro);
-      autorService.salvarAutor(autor);
-    }
+    // for (Autor autor : livro.getAutores()) {
+    //   autor.getLivros().add(livro);
+    //   autorService.salvarAutor(autor);
+    // }
     List<Livro> livros = livroService.getListaLivros();
     model.addAttribute("livros", livros);
     String showDiv = "listaLivros";
