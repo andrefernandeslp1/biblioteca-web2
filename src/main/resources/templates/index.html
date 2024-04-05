@@ -117,9 +117,13 @@
       /* Remove background */
     }
 
+    .tabela {
+      margin: 20px;
+    }
+
     table {
-      /* width: 100%; */
-      border-collapse: collapse;
+      width: 100%;
+      /* border-collapse: collapse; */
     }
 
     th,
@@ -127,6 +131,7 @@
       /* border: 1px solid #ddd; */
       padding: 10px 20px 10px 20px;
       text-align: left;
+      background-color: #f2f2f275;
     }
 
     th {
@@ -243,7 +248,7 @@
           </form>
         </div>
 
-        <div th:case="listaAutores">
+        <div class="tabela" th:case="listaAutores">
           <table>
             <tr>
               <th>Id</th>
@@ -263,6 +268,7 @@
                 </table>
             </tr>
           </table>
+          <p th:if="${mensagem} != null" th:text="${mensagem}" style="text-align: center; padding: 1em;"></p>
         </div>
 
         <div th:case="formEditora">
@@ -276,7 +282,7 @@
           </form>
         </div>
 
-        <div th:case="listaEditoras">
+        <div class="tabela" th:case="listaEditoras">
           <table>
             <tr>
               <th>Id</th>
@@ -289,6 +295,7 @@
               <td th:text="${editora.endereco}"></td>
             </tr>
           </table>
+          <p th:if="${mensagem} != null" th:text="${mensagem}" style="text-align: center; padding: 1em;"></p>
         </div>
 
         <!-- <div th:case="formEmprestimo"></div> -->
@@ -323,7 +330,7 @@
           </form>
         </div>
           
-        <div th:case="listaLivros">
+        <div class="tabela" th:case="listaLivros">
           <table>
             <tr>
               <th>Id</th>
@@ -348,6 +355,34 @@
               </td>
             </tr>
           </table>
+          <p th:if="${mensagem} != null" th:text="${mensagem}" style="text-align: center; padding: 1em;"></p>
+        </div>
+
+        <div th:case="formUsuario">
+          <form action="#" th:action="@{/usuario/addUsuario}" th:object="${usuario}" method="post">
+            <h2>Cadastrar Usuario</h2>
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" th:field="*{nome}" />
+            <label for="email">Email:</label>
+            <input type="text" id="email" th:field="*{email}" />
+            <button type="submit">Salvar</button>
+          </form>
+        </div>
+
+        <div class="tabela" th:case="listaUsuarios">
+          <table>
+            <tr>
+              <th>Id</th>
+              <th>Nome</th>
+              <th>Email</th>
+            </tr>
+            <tr th:each="usuario : ${usuarios}">
+              <td th:text="${usuario.id}"></td>
+              <td th:text="${usuario.nome}"></td>
+              <td th:text="${usuario.email}"></td>
+            </tr>
+          </table>  
+          <p th:if="${mensagem} != null" th:text="${mensagem}" style="text-align: center; padding: 1em;"></p>
         </div>
 
         <div th:case="*">

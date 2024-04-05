@@ -50,6 +50,18 @@ public class LivroController {
   @RequestMapping("/addLivro")
   public String addLivro(@ModelAttribute("livro") Livro livro, Model model) {
 
+    List<Livro> livrosVerificar = livroService.getListaLivros();
+    for (Livro livroVerificar : livrosVerificar) {
+      if (livroVerificar.getTitulo().equals(livro.getTitulo())) {
+        String showDiv = "listaLivros";
+        String mensagem = "Livro já cadastrado!";
+        model.addAttribute("showDiv", showDiv);
+        model.addAttribute("livros", livrosVerificar);
+        model.addAttribute("mensagem", mensagem);
+        return "index";
+      }
+    }
+
     livroService.salvarLivro(livro);
     //atribuir livro a autores
     for (Autor autor : livro.getAutores()) {

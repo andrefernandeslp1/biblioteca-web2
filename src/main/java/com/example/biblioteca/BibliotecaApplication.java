@@ -12,9 +12,12 @@ import org.springframework.context.annotation.Bean;
 import com.example.biblioteca.model.Autor;
 import com.example.biblioteca.model.Editora;
 import com.example.biblioteca.model.Livro;
+import com.example.biblioteca.model.Usuario;
 import com.example.biblioteca.repository.AutorRepository;
 import com.example.biblioteca.repository.EditoraRepository;
+import com.example.biblioteca.repository.EmprestimoRepository;
 import com.example.biblioteca.repository.LivroRepository;
+import com.example.biblioteca.repository.UsuarioRepository;
 
 @SpringBootApplication
 public class BibliotecaApplication {
@@ -27,6 +30,12 @@ public class BibliotecaApplication {
 
   @Autowired
   EditoraRepository editoraRepository;
+
+  @Autowired
+  UsuarioRepository usuarioRepository;
+
+  @Autowired
+  EmprestimoRepository emprestimoRepository;
 
   @Bean
   public CommandLineRunner init(){
@@ -73,6 +82,15 @@ public class BibliotecaApplication {
       livroRepository.save(livro1);
       livroRepository.save(livro2);
       livroRepository.save(livro3);
+
+      Usuario usuario1 = new Usuario("João", "joao@email.com");
+      Usuario usuario2 = new Usuario("Maria", "maria@email.com");
+      Usuario usuario3 = new Usuario("José", "jose@email.com");
+
+      usuarioRepository.save(usuario1);
+      usuarioRepository.save(usuario2);
+      usuarioRepository.save(usuario3);
+
 
       
 

@@ -25,14 +25,35 @@ public class UsuarioController {
   @RequestMapping("/showForm")
   public String showFormUsuario(Model model) {
     
+    Usuario usuario = new Usuario();
+    model.addAttribute("usuario", usuario);
+    String showDiv = "formUsuario";
+    model.addAttribute("showDiv", showDiv);
 
-    return "usuario/formUsuario";
+    return "index";
   }
 
   @RequestMapping("/addUsuario")
   public String addUsuario(@ModelAttribute("usuario") Usuario usuario, Model model) {
 
-    return "usuario/listaUsuarios";
+    List<Usuario> usuariosVerificar = usuarioService.getListaUsuarios();
+    for (Usuario usuarioVerificar : usuariosVerificar) {
+      if (usuarioVerificar.getNome().equals(usuario.getNome())) {
+        String showDiv = "listaUsuarios";
+        String mensagem = "Usuário já cadastrado!";
+        model.addAttribute("showDiv", showDiv);
+        model.addAttribute("usuarios", usuariosVerificar);
+        model.addAttribute("mensagem", mensagem);
+        return "index";
+      }
+    }
+    usuarioService.salvarUsuario(usuario);
+    List<Usuario> usuarios = usuarioService.getListaUsuarios();
+    model.addAttribute("usuarios", usuarios);
+    String showDiv = "listaUsuarios";
+    model.addAttribute("showDiv", showDiv);
+
+    return "index";
   }
 
   @RequestMapping("/getListaUsuarios")
@@ -40,7 +61,10 @@ public class UsuarioController {
 
     List<Usuario> usuarios = usuarioService.getListaUsuarios();
     model.addAttribute("usuarios", usuarios);
-    return "usuario/listaUsuarios";
+    String showDiv = "listaUsuarios";
+    model.addAttribute("showDiv", showDiv);
+
+    return "index";
   }
 
   @RequestMapping("/deletarUsuario")

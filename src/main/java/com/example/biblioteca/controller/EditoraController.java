@@ -36,6 +36,18 @@ public class EditoraController {
   @RequestMapping("/addEditora")
   public String addEditora(@ModelAttribute("editora") Editora editora, Model model) {
 
+    List<Editora> editorasVerificar = editoraService.getListaEditoras();
+    for (Editora editoraVerificar : editorasVerificar) {
+      if (editoraVerificar.getNome().equals(editora.getNome())) {
+        String showDiv = "listaEditoras";
+        String mensagem = "Editora já cadastrada!";
+        model.addAttribute("showDiv", showDiv);
+        model.addAttribute("editoras", editorasVerificar);
+        model.addAttribute("mensagem", mensagem);
+        return "index";
+      }
+    }
+
     editoraService.salvarEditora(editora);
     List<Editora> editoras = editoraService.getListaEditoras();
     model.addAttribute("editoras", editoras);
