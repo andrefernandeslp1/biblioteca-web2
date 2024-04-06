@@ -31,7 +31,11 @@ public class Emprestimo {
   @JoinColumn(name = "id_livro")
   private Livro livro;
 
+  @Column(length = 100)
+  private Boolean devolvido;
+
   public Emprestimo() {
+    this.devolvido = false;
   }
 
   public Emprestimo(String dataEmprestimo, String dataDevolucao, Usuario usuario, Livro livro) {
@@ -39,6 +43,7 @@ public class Emprestimo {
     this.dataDevolucao = dataDevolucao;
     this.usuario = usuario;
     this.livro = livro;
+    this.devolvido = false;
   }
 
   public Integer getId() {
@@ -81,6 +86,14 @@ public class Emprestimo {
     this.livro = livro;
   }
 
+  public Boolean getDevolvido() {
+    return devolvido;
+  }
+
+  public void setDevolvido() {
+    this.devolvido = true;
+  }
+
   @Override
   public String toString() {
     return "Emprestimo{" +
@@ -89,6 +102,7 @@ public class Emprestimo {
             ", dataDevolucao='" + dataDevolucao + '\'' +
             ", usuario=" + usuario +
             ", livro=" + livro +
+            ", devolvido=" + devolvido +
             '}';
   }
 
@@ -101,6 +115,7 @@ public class Emprestimo {
     result = prime * result + ((id == null) ? 0 : id.hashCode());
     result = prime * result + ((livro == null) ? 0 : livro.hashCode());
     result = prime * result + ((usuario == null) ? 0 : usuario.hashCode());
+    result = prime * result + ((devolvido == null) ? 0 : devolvido.hashCode());
     return result;
   }
 
@@ -137,6 +152,11 @@ public class Emprestimo {
       if (other.usuario != null)
         return false;
     } else if (!usuario.equals(other.usuario))
+      return false;
+    if (devolvido == null) {
+      if (other.devolvido != null)
+        return false;
+    } else if (!devolvido.equals(other.devolvido))
       return false;
     return true;
   }

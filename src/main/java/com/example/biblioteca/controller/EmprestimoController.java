@@ -29,14 +29,38 @@ public class EmprestimoController {
   @RequestMapping("/showForm")
   public String showFormEmprestimo(Model model) {
     
+    Emprestimo emprestimo = new Emprestimo();
+    model.addAttribute("emprestimo", emprestimo);
+    model.addAttribute("livros", livroService.getListaLivros());
+    model.addAttribute("usuarios", usuarioService.getListaUsuarios());
+    String showDiv = "formEmprestimo";
+    model.addAttribute("showDiv", showDiv);
 
-    return "emprestimo/formEmprestimo";
+    return "index";
   }
 
   @RequestMapping("/addEmprestimo")
   public String addEmprestimo(@ModelAttribute("emprestimo") Emprestimo emprestimo, Model model) {
 
-    return "emprestimo/listaEmprestimos";
+    List<Emprestimo> emprestimosVerificar = emprestimoService.getListaEmprestimos();
+    for (Emprestimo emprestimoVerificar : emprestimosVerificar) {
+      if (emprestimoVerificar.getLivro().getId().equals(emprestimo.getLivro().getId())) {
+        String showDiv = "listaEmprestimos";
+        String mensagem = "Livro já emprestado!";
+        model.addAttribute("showDiv", showDiv);
+        model.addAttribute("emprestimos", emprestimosVerificar);
+        model.addAttribute("mensagem", mensagem);
+        return "index";
+      }
+    }
+
+    emprestimoService.salvarEmprestimo(emprestimo);
+    List<Emprestimo> emprestimos = emprestimoService.getListaEmprestimos();
+    model.addAttribute("emprestimos", emprestimos);
+    String showDiv = "listaEmprestimos";
+    model.addAttribute("showDiv", showDiv);
+
+    return "index";
   }
 
   @RequestMapping("/getListaEmprestimos")
@@ -44,7 +68,10 @@ public class EmprestimoController {
 
     List<Emprestimo> emprestimos = emprestimoService.getListaEmprestimos();
     model.addAttribute("emprestimos", emprestimos);
-    return "emprestimo/listaEmprestimos";
+    String showDiv = "listaEmprestimos";
+    model.addAttribute("showDiv", showDiv);
+
+    return "index";
   }
 
   @RequestMapping("/deletarEmprestimo")

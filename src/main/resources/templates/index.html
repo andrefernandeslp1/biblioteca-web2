@@ -310,7 +310,55 @@
           <p th:if="${mensagem} != null" th:text="${mensagem}" style="text-align: center; padding: 1em;"></p>
         </div>
 
-        <!-- <div th:case="formEmprestimo"></div> -->
+        <div th:case="formEmprestimo">
+          <form action="#" th:action="@{/emprestimo/addEmprestimo}" th:object="${emprestimo}" method="post">
+            <h2>Fazer Emprestimo</h2>
+            <label for="usuario">Usuario:</label>
+            <select id="usuario" th:field="*{usuario}">
+              <option th:each="usuario : ${usuarios}" th:value="${usuario.id}" th:text="${usuario.nome}"></option>
+            </select>
+            <label for="livro">Livro:</label>
+            <select id="livro" th:field="*{livro}">
+              <option th:each="livro : ${livros}" th:value="${livro.id}" th:text="${livro.titulo}"></option>
+            </select>
+            <label for="dataEmprestimo">Data de Empréstimo:</label>
+            <input type="date" id="dataEmprestimo" th:field="*{dataEmprestimo}" />
+            <label for="dataDevolucao">Data de Devolução:</label>
+            <input type="date" id="dataDevolucao" th:field="*{dataDevolucao}" />
+            <!-- <label for="dataEmprestimo">Data de Empréstimo:</label>
+            <input type="text" id="dataEmprestimo" th:field="*{dataEmprestimo}" />
+            <label for="dataDevolucao">Data de Devolução:</label>
+            <input type="text" id="dataDevolucao" th:field="*{dataDevolucao}" /> -->
+            <button type="submit">Salvar</button>
+          </form>
+        </div>
+
+        <div class="tabela" th:case="listaEmprestimos">
+          <table>
+            <tr>
+              <th>Lista de Emprestimos</th>
+            </tr>
+            <table>
+              <tr>
+                <th>Id</th>
+                <th>Usuario</th>
+                <th>Livro</th>
+                <th>Data de Empréstimo</th>
+                <th>Data de Devolução</th>
+                <th>Devolvido</th>
+              </tr>
+              <tr th:each="emprestimo : ${emprestimos}">
+                <td th:text="${emprestimo.id}"></td>
+                <td th:text="${emprestimo.usuario.nome}"></td>
+                <td th:text="${emprestimo.livro.titulo}"></td>
+                <td th:text="${emprestimo.dataEmprestimo}"></td>
+                <td th:text="${emprestimo.dataDevolucao}"></td>
+                <td th:text="${emprestimo.devolvido}"></td>
+              </tr>
+            </table>
+          </table>
+          <p th:if="${mensagem} != null" th:text="${mensagem}" style="text-align: center; padding: 1em;"></p>
+        </div>
 
         <!-- <div th:case="listaEmprestimos"></div> -->
 

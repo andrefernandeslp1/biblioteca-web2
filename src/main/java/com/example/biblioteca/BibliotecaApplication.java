@@ -11,6 +11,7 @@ import org.springframework.context.annotation.Bean;
 
 import com.example.biblioteca.model.Autor;
 import com.example.biblioteca.model.Editora;
+import com.example.biblioteca.model.Emprestimo;
 import com.example.biblioteca.model.Livro;
 import com.example.biblioteca.model.Usuario;
 import com.example.biblioteca.repository.AutorRepository;
@@ -91,11 +92,9 @@ public class BibliotecaApplication {
       usuarioRepository.save(usuario2);
       usuarioRepository.save(usuario3);
 
+      Emprestimo emprestimo1 = new Emprestimo("2024-04-05", "2024-05-05", usuario1, livro1);
 
-      
-
-
-
+      emprestimoRepository.save(emprestimo1);
 
 
 
