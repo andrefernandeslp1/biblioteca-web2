@@ -1,5 +1,6 @@
 package com.example.biblioteca;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -92,7 +93,7 @@ public class BibliotecaApplication {
       usuarioRepository.save(usuario2);
       usuarioRepository.save(usuario3);
 
-      Emprestimo emprestimo1 = new Emprestimo("2024-04-05", "2024-05-05", usuario1, livro1);
+      Emprestimo emprestimo1 = new Emprestimo(usuario1, livro1);
 
       emprestimoRepository.save(emprestimo1);
 

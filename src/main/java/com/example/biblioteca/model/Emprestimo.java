@@ -1,5 +1,7 @@
 package com.example.biblioteca.model;
 
+import java.time.LocalDate;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -18,10 +20,10 @@ public class Emprestimo {
   private Integer id;
 
   @Column(length = 100)
-  private String dataEmprestimo;
+  private LocalDate dataEmprestimo;
 
   @Column(length = 100)
-  private String dataDevolucao;
+  private LocalDate dataDevolucao;
 
   @ManyToOne
   @JoinColumn(name = "id_usuario")
@@ -35,12 +37,12 @@ public class Emprestimo {
   private Boolean devolvido;
 
   public Emprestimo() {
+    this.dataEmprestimo = LocalDate.now();
     this.devolvido = false;
   }
 
-  public Emprestimo(String dataEmprestimo, String dataDevolucao, Usuario usuario, Livro livro) {
-    this.dataEmprestimo = dataEmprestimo;
-    this.dataDevolucao = dataDevolucao;
+  public Emprestimo(Usuario usuario, Livro livro) {
+    this.dataEmprestimo = LocalDate.now();
     this.usuario = usuario;
     this.livro = livro;
     this.devolvido = false;
@@ -54,19 +56,19 @@ public class Emprestimo {
     this.id = id;
   }
 
-  public String getDataEmprestimo() {
+  public LocalDate getDataEmprestimo() {
     return dataEmprestimo;
   }
 
-  public void setDataEmprestimo(String dataEmprestimo) {
+  public void setDataEmprestimo(LocalDate dataEmprestimo) {
     this.dataEmprestimo = dataEmprestimo;
   }
 
-  public String getDataDevolucao() {
+  public LocalDate getDataDevolucao() {
     return dataDevolucao;
   }
 
-  public void setDataDevolucao(String dataDevolucao) {
+  public void setDataDevolucao(LocalDate dataDevolucao) {
     this.dataDevolucao = dataDevolucao;
   }
 
@@ -91,6 +93,7 @@ public class Emprestimo {
   }
 
   public void setDevolvido() {
+    this.dataDevolucao = LocalDate.now();
     this.devolvido = true;
   }
 

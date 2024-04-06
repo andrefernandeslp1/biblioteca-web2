@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.biblioteca.model.Emprestimo;
@@ -45,12 +46,20 @@ public class EmprestimoController {
     List<Emprestimo> emprestimosVerificar = emprestimoService.getListaEmprestimos();
     for (Emprestimo emprestimoVerificar : emprestimosVerificar) {
       if (emprestimoVerificar.getLivro().getId().equals(emprestimo.getLivro().getId())) {
-        String showDiv = "listaEmprestimos";
-        String mensagem = "Livro já emprestado!";
-        model.addAttribute("showDiv", showDiv);
-        model.addAttribute("emprestimos", emprestimosVerificar);
-        model.addAttribute("mensagem", mensagem);
-        return "index";
+        if (emprestimoVerificar.getDevolvido() == false) {
+          String showDiv = "listaEmprestimos";
+          String mensagem = "Livro já emprestado!";
+          model.addAttribute("showDiv", showDiv);
+          model.addAttribute("emprestimos", emprestimosVerificar);
+          model.addAttribute("mensagem", mensagem);
+          return "index";
+        }
+        // String showDiv = "listaEmprestimos";
+        // String mensagem = "Livro já emprestado!";
+        // model.addAttribute("showDiv", showDiv);
+        // model.addAttribute("emprestimos", emprestimosVerificar);
+        // model.addAttribute("mensagem", mensagem);
+        // return "index";
       }
     }
 
@@ -74,10 +83,19 @@ public class EmprestimoController {
     return "index";
   }
 
-  @RequestMapping("/deletarEmprestimo")
-  public String deletarEmprestimo(Integer id, Model model) {
+  @RequestMapping("/devolverEmprestimo") 
+  public String devolverEmprestimo(Model model, Integer id) {
+    
+    Emprestimo emprestimo = emprestimoService.getEmprestimoById(id);
+    emprestimo.setDevolvido();
+    emprestimoService.salvarEmprestimo(emprestimo);
+        
+    List<Emprestimo> emprestimos = emprestimoService.getListaEmprestimos();
+    model.addAttribute("emprestimos", emprestimos);
+    String showDiv = "listaEmprestimos";
+    model.addAttribute("showDiv", showDiv);
 
-    return "emprestimo/listaEmprestimos";
+    return "index";
   }
 
 }

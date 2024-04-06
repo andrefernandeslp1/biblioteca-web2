@@ -321,14 +321,10 @@
             <select id="livro" th:field="*{livro}">
               <option th:each="livro : ${livros}" th:value="${livro.id}" th:text="${livro.titulo}"></option>
             </select>
-            <label for="dataEmprestimo">Data de Empréstimo:</label>
+            <!-- <label for="dataEmprestimo">Data de Empréstimo:</label>
             <input type="date" id="dataEmprestimo" th:field="*{dataEmprestimo}" />
             <label for="dataDevolucao">Data de Devolução:</label>
-            <input type="date" id="dataDevolucao" th:field="*{dataDevolucao}" />
-            <!-- <label for="dataEmprestimo">Data de Empréstimo:</label>
-            <input type="text" id="dataEmprestimo" th:field="*{dataEmprestimo}" />
-            <label for="dataDevolucao">Data de Devolução:</label>
-            <input type="text" id="dataDevolucao" th:field="*{dataDevolucao}" /> -->
+            <input type="date" id="dataDevolucao" th:field="*{dataDevolucao}" /> -->
             <button type="submit">Salvar</button>
           </form>
         </div>
@@ -353,7 +349,16 @@
                 <td th:text="${emprestimo.livro.titulo}"></td>
                 <td th:text="${emprestimo.dataEmprestimo}"></td>
                 <td th:text="${emprestimo.dataDevolucao}"></td>
-                <td th:text="${emprestimo.devolvido}"></td>
+                <td >
+                  <span th:if="${emprestimo.devolvido} == false">
+                    Não
+                    <form th:action="@{/emprestimo/devolverEmprestimo}" method="post" style="all: unset;">
+                      <input type="hidden" name="id" th:value="${emprestimo.id}" />
+                      <input type="submit" value="Devolver" style="margin:0;"/>
+                    </form>
+                  </span>
+                  <span th:if="${emprestimo.devolvido} == true">Sim</span>
+                </td>
               </tr>
             </table>
           </table>
