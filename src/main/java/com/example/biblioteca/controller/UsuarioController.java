@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.example.biblioteca.model.Emprestimo;
 import com.example.biblioteca.model.Usuario;
 import com.example.biblioteca.service.EmprestimoService;
 import com.example.biblioteca.service.UsuarioService;
@@ -70,7 +71,27 @@ public class UsuarioController {
   @RequestMapping("/deletarUsuario")
   public String deletarUsuario(Integer id, Model model) {
 
-    return "usuario/listaUsuarios";
+    Usuario usuario = usuarioService.getUsuarioById(id);
+    List<Emprestimo> emprestimos = emprestimoService.getListaEmprestimos();
+    for (Emprestimo emprestimo : emprestimos) {
+      if (emprestimo.getUsuario().getId().equals(usuario.getId())) {
+        emprestimoService.deletarEmprestimo(emprestimo);
+        usuarioService.deletarUsuario(usuario);
+        String showDiv = "listaUsuarios";
+        String mensagem = "Emprestimos do usuário apagados!";
+        model.addAttribute("showDiv", showDiv);
+        model.addAttribute("usuarios", usuarioService.getListaUsuarios());
+        model.addAttribute("mensagem", mensagem);
+        return "index";
+      }
+    }
+    usuarioService.deletarUsuario(usuario);
+    List<Usuario> usuarios = usuarioService.getListaUsuarios();
+    model.addAttribute("usuarios", usuarios);
+    String showDiv = "listaUsuarios";
+    model.addAttribute("showDiv", showDiv);
+
+    return "index";
   }
 
 }

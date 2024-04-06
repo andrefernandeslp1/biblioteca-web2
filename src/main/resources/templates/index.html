@@ -454,7 +454,13 @@
               </tr>
               <tr th:each="usuario : ${usuarios}">
                 <td th:text="${usuario.id}"></td>
-                <td th:text="${usuario.nome}"></td>
+                <td>
+                  <span th:text="${usuario.nome}"></span>
+                  <form th:action="@{/usuario/deletarUsuario}" method="post" style="all: unset;">
+                    <input type="hidden" name="id" th:value="${usuario.id}" />
+                    <input type="submit" value="Excluir" style="margin:0;"/>
+                  </form>
+                </td>
                 <td th:text="${usuario.email}"></td>
               </tr>
             </table>
