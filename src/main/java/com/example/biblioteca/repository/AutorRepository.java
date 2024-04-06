@@ -9,7 +9,7 @@ import com.example.biblioteca.model.Autor;
 
 public interface AutorRepository extends JpaRepository<Autor,Integer>{
 
-  // recuperar lista de autores do banco de dados
+  // recupera lista de autores do banco de dados
   @Query(value = "select a from Autor a")
   List<Autor> listarAutores();
   

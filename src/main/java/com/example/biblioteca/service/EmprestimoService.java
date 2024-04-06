@@ -31,5 +31,9 @@ public class EmprestimoService {
       return emprestimo;
     }).orElseThrow(() -> new RuntimeException("Emprestimo não encontrado"));
   }
+
+  public List<Emprestimo> getListaEmprestimosAtivos() {
+    return emprestimoRepository.listarEmprestimosAtivos();
+  }
   
 }

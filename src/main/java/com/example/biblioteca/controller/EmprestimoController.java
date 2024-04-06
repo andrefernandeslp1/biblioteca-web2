@@ -84,6 +84,17 @@ public class EmprestimoController {
     return "index";
   }
 
+  @RequestMapping("/getListaEmprestimosAtivos")
+  public String getListaEmprestimosAtivos(Model model) {
+
+    List<Emprestimo> emprestimos = emprestimoService.getListaEmprestimosAtivos();
+    model.addAttribute("emprestimos", emprestimos);
+    String showDiv = "listaEmprestimosAtivos";
+    model.addAttribute("showDiv", showDiv);
+
+    return "index";
+  }
+
   @RequestMapping("/devolverEmprestimo") 
   public String devolverEmprestimo(Model model, Integer id) {
     

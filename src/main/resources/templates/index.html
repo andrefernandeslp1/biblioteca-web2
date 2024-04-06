@@ -206,10 +206,11 @@
         </div>
       </div>
       <div class="dropdown">
-        <button class="dropbtn">Emprestimo</button>
+        <button class="dropbtn">Empréstimo</button>
         <div class="dropdown-content">
-          <a href="/emprestimo/showForm">Fazer Emprestimo</a>
-          <a href="/emprestimo/getListaEmprestimos">Listar Emprestimos</a>
+          <a href="/emprestimo/showForm">Fazer Empréstimo</a>
+          <a href="/emprestimo/getListaEmprestimos">Listar Empréstimos</a>
+          <a href="/emprestimo/getListaEmprestimosAtivos">Listar Empréstimos Ativos</a>
         </div>
       </div>
       <div class="dropdown">
@@ -312,7 +313,7 @@
 
         <div th:case="formEmprestimo">
           <form action="#" th:action="@{/emprestimo/addEmprestimo}" th:object="${emprestimo}" method="post">
-            <h2>Fazer Emprestimo</h2>
+            <h2>Fazer Empréstimo</h2>
             <label for="usuario">Usuario:</label>
             <select id="usuario" th:field="*{usuario}">
               <option th:each="usuario : ${usuarios}" th:value="${usuario.id}" th:text="${usuario.nome}"></option>
@@ -332,7 +333,7 @@
         <div class="tabela" th:case="listaEmprestimos">
           <table>
             <tr>
-              <th>Lista de Emprestimos</th>
+              <th>Lista de Empréstimos</th>
             </tr>
             <table>
               <tr>
@@ -340,15 +341,15 @@
                 <th>Usuario</th>
                 <th>Livro</th>
                 <th>Data de Empréstimo</th>
-                <th>Data de Devolução</th>
-                <th>Devolvido</th>
+                <th >Data de Devolução</th>
+                <th >Devolvido</th>
               </tr>
               <tr th:each="emprestimo : ${emprestimos}">
                 <td th:text="${emprestimo.id}"></td>
                 <td th:text="${emprestimo.usuario.nome}"></td>
                 <td th:text="${emprestimo.livro.titulo}"></td>
                 <td th:text="${emprestimo.dataEmprestimo}"></td>
-                <td th:text="${emprestimo.dataDevolucao}"></td>
+                <td  th:text="${emprestimo.dataDevolucao}"></td>
                 <td >
                   <span th:if="${emprestimo.devolvido} == false">
                     <span style="line-height:30px;">Não</span>
@@ -363,6 +364,28 @@
             </table>
           </table>
           <p th:if="${mensagem} != null" th:text="${mensagem}" style="text-align: center; padding: 1em;"></p>
+        </div>
+
+        <div class="tabela" th:case="listaEmprestimosAtivos">
+          <table>
+            <tr>
+              <th>Lista de Emprestimos</th>
+            </tr>
+            <table>
+              <tr>
+                <th>Id</th>
+                <th>Usuario</th>
+                <th>Livro</th>
+                <th>Data de Empréstimo</th>
+              </tr>
+              <tr th:each="emprestimo : ${emprestimos}">
+                <td th:text="${emprestimo.id}"></td>
+                <td th:text="${emprestimo.usuario.nome}"></td>
+                <td th:text="${emprestimo.livro.titulo}"></td>
+                <td th:text="${emprestimo.dataEmprestimo}"></td>
+              </tr>
+            </table>
+          </table>
         </div>
 
         <!-- <div th:case="listaEmprestimos"></div> -->
@@ -474,6 +497,9 @@
           </h2>
           <p>Sistema para administração de bibliotecas.</p>
           <p>Escolha uma opção no menu acima para começar.</p>
+          <p>Orientações:</p>
+          <p> - O autor precisa ser/estar cadastrado antes que seu livro o seja.</p>
+          <p> - O usuário precisa ser/estar cadastrado antes de realizar o empréstimo.</p>
         </div>
       </div>
     </div>
