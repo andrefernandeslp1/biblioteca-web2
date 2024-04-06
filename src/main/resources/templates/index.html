@@ -227,14 +227,14 @@
         </div>
       </div>
       <div class="dropdown">
-        <button class="dropbtn">Relatorio</button>
+        <button class="dropbtn">Sobre</button>
         <div class="dropdown-content">
-          <a href="/relatorio">Relatorio</a>
+          <a href=# onclick="mostrarMapeamento()">Mapeamento BD</a>
         </div>
       </div>
     </div>
 
-    <div class="conteudo">
+    <div id="conteudo" class="conteudo">
 
       <div th:switch="${showDiv}">
 
@@ -351,10 +351,10 @@
                 <td th:text="${emprestimo.dataDevolucao}"></td>
                 <td >
                   <span th:if="${emprestimo.devolvido} == false">
-                    Não
+                    <span style="line-height:30px;">Não</span>
                     <form th:action="@{/emprestimo/devolverEmprestimo}" method="post" style="all: unset;">
                       <input type="hidden" name="id" th:value="${emprestimo.id}" />
-                      <input type="submit" value="Devolver" style="margin:0;"/>
+                      <input type="submit" value="Devolver" style="margin:0; float:right"/>
                     </form>
                   </span>
                   <span th:if="${emprestimo.devolvido} == true">Sim</span>
@@ -455,10 +455,10 @@
               <tr th:each="usuario : ${usuarios}">
                 <td th:text="${usuario.id}"></td>
                 <td>
-                  <span th:text="${usuario.nome}"></span>
+                  <span th:text="${usuario.nome}" style="line-height:30px;"></span>
                   <form th:action="@{/usuario/deletarUsuario}" method="post" style="all: unset;">
                     <input type="hidden" name="id" th:value="${usuario.id}" />
-                    <input type="submit" value="Excluir" style="margin:0;"/>
+                    <input type="submit" value="Excluir" style="margin:0;float:right"/>
                   </form>
                 </td>
                 <td th:text="${usuario.email}"></td>
@@ -480,5 +480,16 @@
   </div>
 
 </body>
+
+<script>
+  function mostrarMapeamento() {
+    //colocar imagem do mapeamento do banco de dados no id conteudo
+    document.getElementById("conteudo").innerHTML = 
+      "<div style='text-align: center; padding: 0 30px;'>" +  
+      "<h3>Mapeamento do Banco de Dados</h3>" +
+      "<img src='/imgs/mapeamento-bd.png' alt='mapeamento-bd' style='width: 100%; border: 1px solid lightgrey'>"
+      "</div>";
+  }
+</script>
 
 </html>

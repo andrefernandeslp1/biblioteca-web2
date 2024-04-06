@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.biblioteca.model.Emprestimo;
+import com.example.biblioteca.model.Livro;
 import com.example.biblioteca.service.EmprestimoService;
 import com.example.biblioteca.service.LivroService;
 import com.example.biblioteca.service.UsuarioService;

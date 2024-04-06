@@ -23,7 +23,8 @@ public class AutorService {
   }
 
   public List<Autor> getListaAutores() {
-    return autorRepository.findAll();
+    // return autorRepository.findAll();
+    return autorRepository.listarAutores();
   }
 
   public Autor getAutorById(Integer id) {

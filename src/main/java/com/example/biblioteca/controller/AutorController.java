@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 
 import com.example.biblioteca.model.Autor;
+// import com.example.biblioteca.repository.AutorRepository;
 import com.example.biblioteca.service.AutorService;
 import com.example.biblioteca.service.LivroService;
 
@@ -23,6 +24,9 @@ public class AutorController {
 
   @Autowired
   LivroService livroService;
+
+  // @Autowired
+  // AutorRepository autorRepository;
 
   // @RequestMapping("/showForm")
   // public String showFormAutor(Model model) {
@@ -70,6 +74,7 @@ public class AutorController {
   public String getListaAutores(Model model) {
 
     List<Autor> autores = autorService.getListaAutores();
+    // List<Autor> autores = autorRepository.listarAutores();
     model.addAttribute("autores", autores);
     String showDiv = "listaAutores";
     model.addAttribute("showDiv", showDiv);
