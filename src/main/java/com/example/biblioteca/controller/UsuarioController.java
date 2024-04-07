@@ -76,13 +76,13 @@ public class UsuarioController {
     for (Emprestimo emprestimo : emprestimos) {
       if (emprestimo.getUsuario().getId().equals(usuario.getId())) {
         emprestimoService.deletarEmprestimo(emprestimo);
-        usuarioService.deletarUsuario(usuario);
-        String showDiv = "listaUsuarios";
-        String mensagem = "Emprestimos do usuário apagados!";
-        model.addAttribute("showDiv", showDiv);
-        model.addAttribute("usuarios", usuarioService.getListaUsuarios());
+        // usuarioService.deletarUsuario(usuario);
+        // String showDiv = "listaUsuarios";
+        String mensagem = "Emprestimo(s) do usuário apagado(s)!";
+        // model.addAttribute("showDiv", showDiv);
+        // model.addAttribute("usuarios", usuarioService.getListaUsuarios());
         model.addAttribute("mensagem", mensagem);
-        return "index";
+        // return "index";
       }
     }
     usuarioService.deletarUsuario(usuario);
