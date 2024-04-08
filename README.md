@@ -60,19 +60,19 @@ Esta página (ver imagem acima) é onde a ação acontece. Para exibir as inform
 
 Para as operações CRUD, foram implementadas as seguintes funcionalidades:  
 
-**Create:** Cadastrar livro, autor, editora, empréstimo ou usuário.  
-![create](https://raw.githubusercontent.com/andrefernandeslp1/biblioteca-web2/main/src/main/resources/static/imgs/Screen%20Shot%202024-04-08%20%20at%209.59.23-fullpage.png)  
+**Create:** Cadastrar livro, autor, editora, empréstimo ou usuário (ver imagem abaixo).  
+![create](https://raw.githubusercontent.com/andrefernandeslp1/biblioteca-web2/main/src/main/resources/static/imgs/Screen%20Shot%202024-04-08%20at%2009.59.23-fullpage.png)  
 
-**Read:** Listar livros, autores, editoras, empréstimos ou usuários.  
+**Read:** Listar livros, autores, editoras, empréstimos ou usuários (ver imagem abaixo).  
 ![read](https://raw.githubusercontent.com/andrefernandeslp1/biblioteca-web2/main/src/main/resources/static/imgs/Screen%20Shot%202024-04-08%20at%2009.59.46-fullpage.png)  
 
-**Update:** Alterar estado do empréstimo.  
-Ao clicar o botão devolver (ver imagem abaixo), o sistema atualiza o estado do empréstimo para devolvido.  
+**Update:** Devolver empréstimo.  
+Ao clicar o botão `Devolver` (ver imagem abaixo), o sistema atualiza o estado do empréstimo para devolvido.  
 
 ![update](https://raw.githubusercontent.com/andrefernandeslp1/biblioteca-web2/main/src/main/resources/static/imgs/Screen%20Shot%202024-04-08%20at%2001.51.12-fullpage.png)  
 
 **Delete:** Excluir usuário.  
-Ao clicar em excluir (ver imagem abaixo), o sistema excluirá o usuário do banco de dabos e todos os empréstimos associados a ele.  
+Ao clicar em `Excluir` (ver imagem abaixo), o sistema excluirá o usuário do banco de dabos e todos os empréstimos associados a ele.  
 
 ![delete](https://raw.githubusercontent.com/andrefernandeslp1/biblioteca-web2/main/src/main/resources/static/imgs/Screen%20Shot%202024-04-08%20at%2001.51.31-fullpage.png)  
 
