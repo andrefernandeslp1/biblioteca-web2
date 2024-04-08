@@ -55,11 +55,11 @@ Para a arquitetura MVC, foram criados os seguintes pacotes:
 Aqui, foram criadas apenas duas páginas:  
 ![view](https://raw.githubusercontent.com/andrefernandeslp1/biblioteca-web2/main/src/main/resources/static/imgs/html.PNG)  
 
-`**menu.html:**`  
+**`menu.html`**  
 ![menu](https://raw.githubusercontent.com/andrefernandeslp1/biblioteca-web2/main/src/main/resources/static/imgs/Screen%20Shot%202024-04-08%20at%2001.51.51-fullpage.png)  
 Esta página é criada por padrão pelo Spring Boot e é uma espécie de porta de entrada para a aplicação.  
 
-`**index.html:**`  
+**`index.html`**  
 ![index](https://raw.githubusercontent.com/andrefernandeslp1/biblioteca-web2/main/src/main/resources/static/imgs/Screen%20Shot%202024-04-08%20at%2001.48.43-fullpage.png)  
 Esta página é onde a ação acontece. Para exibir as informações do sistema utilizei uma abordagem de página única, na qual o trecho de html a ser exibido é determinado por uma informação passada pelo controller e manipulada pelo Thymeleaf, que utilizando a diretiva th:switch, exibe o código desejado.  
 
