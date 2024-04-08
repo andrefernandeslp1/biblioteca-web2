@@ -74,7 +74,7 @@ Esta página é onde a ação acontece. Para exibir as informações do sistema 
 
 ## 7. Personalização e Usabilidade
 
-**CSS:** para estilizar as páginas, foi utilizado CSS puro.  
+**CSS:** CSS puro foi utilizado para estilizar as páginas.  
 
 **JavaScript:** o JavaScript foi utilizado apenas para exigir a corfirmação do usuário ao realizar operações de Update e Delete.  
 
