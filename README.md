@@ -26,7 +26,7 @@ Para fazer a persistência dos dados e mapeamento objeto-relacional, foi utiliza
 
 Para o mapeamento objeto-relacional, foram criadas as seguintes entidades:  
 
-# IMAGEM do mapeamento
+### IMAGEM do mapeamento
 
 ## 5. Operações CRUD
 
@@ -38,18 +38,18 @@ Read: Listar livros, autores, editoras, empréstimos ou usuários.
 
 Update: Alterar estado do empréstimo.  
 
-# IMAGEM
+### IMAGEM
 
 Delete: Excluir usuário.  
 
-# IMAGEM
+### IMAGEM
 
 ## 6. Arquitetura MVC
 
 Para a arquitetura MVC, foram criados os seguintes pacotes:  
 
 Model: Responsável por representar as entidades do banco de dados.  
-# IMAGEM
+### IMAGEM
 
 View: Responsável por renderizar as páginas no lado do servidor.  
 Aqui, foram criadas apenas duas páginas:  
@@ -61,11 +61,11 @@ index.html:
 Esta página é onde a ação acontece. Para exibir as informações do sistema utilizei uma abordagem de página única, na qual o trecho de html a ser exibido é determinado por uma informação passada pelo controller e manipulada pelo Thymeleaf, que utilizando a diretiva th:switch, exibe o código desejado.  
 
 Controller: Responsável pelas requisições e direcionamento das respostas.  
-# IMAGEM
+### IMAGEM
 Service: Responsável por desacoplar a aplicação das classes repositórios ou de regras de negócio.  
-# IMAGEM
+### IMAGEM
 Repository: Responsável por fazer a persistência dos dados.  
-# IMAGEM
+### IMAGEM
 
 ## 7. Personalização e Usabilidade
 
