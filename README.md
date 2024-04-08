@@ -75,7 +75,7 @@ Esta página (ver imagem acima) é onde a ação acontece. Para exibir as inform
 ![repository](https://raw.githubusercontent.com/andrefernandeslp1/biblioteca-web2/main/src/main/resources/static/imgs/repository.PNG)  
 
 ## 7. Queries personalizadas
-1 - Listar livros disponíveis para empréstimo:  
+1 - Listar autores cadastrados:  
 ![query1](https://raw.githubusercontent.com/andrefernandeslp1/biblioteca-web2/main/src/main/resources/static/imgs/Query1.PNG)  
 
 2 - Listar empréstimos ativos:  
