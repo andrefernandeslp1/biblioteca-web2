@@ -6,4 +6,6 @@ import com.example.biblioteca.model.Livro;
 
 public interface LivroRepository extends JpaRepository<Livro,Integer>{
   
+  
+
 }

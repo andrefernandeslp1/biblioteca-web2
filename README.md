@@ -37,10 +37,12 @@ Para as operações CRUD, foram implementadas as seguintes funcionalidades:
 **Read:** Listar livros, autores, editoras, empréstimos ou usuários.  
 
 **Update:** Alterar estado do empréstimo.  
+Ao clicar o botão devolver (ver imagem abaixo), o sistema atualiza o estado do empréstimo para devolvido.  
 
 ![update](https://raw.githubusercontent.com/andrefernandeslp1/biblioteca-web2/main/src/main/resources/static/imgs/Screen%20Shot%202024-04-08%20at%2001.51.12-fullpage.png)  
 
 **Delete:** Excluir usuário.  
+Ao clicar em excluir (ver imagem abaixo), o sistema excluirá o usuário do banco de dabos e todos os empréstimos associados a ele.  
 
 ![delete](https://raw.githubusercontent.com/andrefernandeslp1/biblioteca-web2/main/src/main/resources/static/imgs/Screen%20Shot%202024-04-08%20at%2001.51.31-fullpage.png)  
 
@@ -57,11 +59,11 @@ Aqui, foram criadas apenas duas páginas:
 
 **`menu.html`**  
 ![menu](https://raw.githubusercontent.com/andrefernandeslp1/biblioteca-web2/main/src/main/resources/static/imgs/Screen%20Shot%202024-04-08%20at%2001.51.51-fullpage.png)  
-Esta página é criada por padrão pelo Spring Boot e é uma espécie de porta de entrada para a aplicação.  
+Esta página (ver imagem acima) é criada por padrão pelo Spring Boot e é uma espécie de porta de entrada para a aplicação.  
 
 **`index.html`**  
 ![index](https://raw.githubusercontent.com/andrefernandeslp1/biblioteca-web2/main/src/main/resources/static/imgs/Screen%20Shot%202024-04-08%20at%2001.48.43-fullpage.png)  
-Esta página é onde a ação acontece. Para exibir as informações do sistema utilizei uma abordagem de página única, na qual o trecho de html a ser exibido é determinado por uma informação passada pelo controller e manipulada pelo Thymeleaf, que utilizando a diretiva th:switch, exibe o código desejado.  
+Esta página (ver imagem acima) é onde a ação acontece. Para exibir as informações do sistema utilizei uma abordagem de página única, na qual o trecho de html a ser exibido é determinado por uma informação passada pelo controller e manipulada pelo Thymeleaf, que utilizando a diretiva th:switch, exibe o código desejado.  
 
 **Controller:** Responsável pelas requisições e direcionamento das respostas.  
 ![controller](https://raw.githubusercontent.com/andrefernandeslp1/biblioteca-web2/main/src/main/resources/static/imgs/controller.PNG)  
@@ -72,7 +74,14 @@ Esta página é onde a ação acontece. Para exibir as informações do sistema 
 **Repository:** Responsável por fazer a persistência dos dados.  
 ![repository](https://raw.githubusercontent.com/andrefernandeslp1/biblioteca-web2/main/src/main/resources/static/imgs/repository.PNG)  
 
-## 7. Personalização e Usabilidade
+## 7. Queries personalizadas
+1 - Listar livros disponíveis para empréstimo:  
+![query1]https://raw.githubusercontent.com/andrefernandeslp1/biblioteca-web2/main/src/main/resources/static/imgs/Query1.PNG()  
+
+2 - Listar empréstimos ativos:  
+![query2](https://raw.githubusercontent.com/andrefernandeslp1/biblioteca-web2/main/src/main/resources/static/imgs/Query2.PNG)  
+
+## 8. Personalização e Usabilidade
 
 **CSS:** CSS puro foi utilizado para estilizar as páginas.  
 
@@ -80,13 +89,13 @@ Esta página é onde a ação acontece. Para exibir as informações do sistema 
 
 **Thymeleaf:** esta ferramenta foi bastante utilizada para a manipulação de dados, cominicação com o controller e renderização de páginas.  
 
-## 8. Conclusão
+## 9. Conclusão
 
 O projeto foi desenvolvido com sucesso, atendendo aos critérios de avaliação propostos, alguns mais desenvolvidos que outros, mas todos presentes.  
 O sistema não foi testado a exaustão, então alguns bugs podem ter passado despercebidos.
 Não obstante, todos os erros encontrados foram corrigidos e o sistema está funcional.  
 
-## 9. Referências
+## 10. Referências
 
 - [Spring](https://spring.io/)  
 - [Thymeleaf](https://www.thymeleaf.org/)  
