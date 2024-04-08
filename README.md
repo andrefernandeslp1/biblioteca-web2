@@ -87,7 +87,7 @@ Ao clicar em excluir (ver imagem abaixo), o sistema excluirá o usuário do banc
 
 **JavaScript:** o JavaScript foi utilizado apenas para exigir a corfirmação do usuário ao realizar operações de Update e Delete.  
 
-**Thymeleaf:** esta ferramenta foi bastante utilizada para a manipulação de dados, cominicação com o controller e renderização de páginas.  
+**Thymeleaf:** esta ferramenta foi bastante utilizada para a manipulação de dados, comunicação com o controller e renderização de páginas.  
 
 ## 9. Conclusão
 
