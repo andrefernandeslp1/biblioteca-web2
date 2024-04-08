@@ -61,7 +61,7 @@ Esta página (ver imagem acima) é onde a ação acontece. Para exibir as inform
 Para as operações CRUD, foram implementadas as seguintes funcionalidades:  
 
 **Create:** Cadastrar livro, autor, editora, empréstimo ou usuário.  
-![create](https://raw.githubusercontent.com/andrefernandeslp1/biblioteca-web2/main/src/main/resources/static/imgs/Screen%20Shot%202024-04-08%20%20at%2009.59.23-fullpage.png)  
+![create](https://raw.githubusercontent.com/andrefernandeslp1/biblioteca-web2/main/src/main/resources/static/imgs/Screen%20Shot%202024-04-08%20%20at%209.59.23-fullpage.png)  
 
 **Read:** Listar livros, autores, editoras, empréstimos ou usuários.  
 ![read](https://raw.githubusercontent.com/andrefernandeslp1/biblioteca-web2/main/src/main/resources/static/imgs/Screen%20Shot%202024-04-08%20at%2009.59.46-fullpage.png)  
