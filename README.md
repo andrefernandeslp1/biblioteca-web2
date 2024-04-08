@@ -28,7 +28,7 @@ Para o mapeamento objeto-relacional, foram criadas as seguintes entidades:
 
 ![mapeamento](https://raw.githubusercontent.com/andrefernandeslp1/biblioteca-web2/main/src/main/resources/static/imgs/mapeamento-bd.PNG)  
 
-## 6. Arquitetura MVC
+## 5. Arquitetura MVC
 
 Para a arquitetura MVC, foram criados os seguintes pacotes:  
 
@@ -56,7 +56,7 @@ Esta página (ver imagem acima) é onde a ação acontece. Para exibir as inform
 **Repository:** Responsável por fazer a persistência dos dados.  
 ![repository](https://raw.githubusercontent.com/andrefernandeslp1/biblioteca-web2/main/src/main/resources/static/imgs/repository.PNG)  
 
-## 5. Operações CRUD
+## 6. Operações CRUD
 
 Para as operações CRUD, foram implementadas as seguintes funcionalidades:  
 
