@@ -28,24 +28,6 @@ Para o mapeamento objeto-relacional, foram criadas as seguintes entidades:
 
 ![mapeamento](https://raw.githubusercontent.com/andrefernandeslp1/biblioteca-web2/main/src/main/resources/static/imgs/mapeamento-bd.PNG)  
 
-## 5. Operações CRUD
-
-Para as operações CRUD, foram implementadas as seguintes funcionalidades:  
-
-**Create:** Cadastrar livro, autor, editora, empréstimo ou usuário.  
-
-**Read:** Listar livros, autores, editoras, empréstimos ou usuários.  
-
-**Update:** Alterar estado do empréstimo.  
-Ao clicar o botão devolver (ver imagem abaixo), o sistema atualiza o estado do empréstimo para devolvido.  
-
-![update](https://raw.githubusercontent.com/andrefernandeslp1/biblioteca-web2/main/src/main/resources/static/imgs/Screen%20Shot%202024-04-08%20at%2001.51.12-fullpage.png)  
-
-**Delete:** Excluir usuário.  
-Ao clicar em excluir (ver imagem abaixo), o sistema excluirá o usuário do banco de dabos e todos os empréstimos associados a ele.  
-
-![delete](https://raw.githubusercontent.com/andrefernandeslp1/biblioteca-web2/main/src/main/resources/static/imgs/Screen%20Shot%202024-04-08%20at%2001.51.31-fullpage.png)  
-
 ## 6. Arquitetura MVC
 
 Para a arquitetura MVC, foram criados os seguintes pacotes:  
@@ -73,6 +55,24 @@ Esta página (ver imagem acima) é onde a ação acontece. Para exibir as inform
 
 **Repository:** Responsável por fazer a persistência dos dados.  
 ![repository](https://raw.githubusercontent.com/andrefernandeslp1/biblioteca-web2/main/src/main/resources/static/imgs/repository.PNG)  
+
+## 5. Operações CRUD
+
+Para as operações CRUD, foram implementadas as seguintes funcionalidades:  
+
+**Create:** Cadastrar livro, autor, editora, empréstimo ou usuário.  
+
+**Read:** Listar livros, autores, editoras, empréstimos ou usuários.  
+
+**Update:** Alterar estado do empréstimo.  
+Ao clicar o botão devolver (ver imagem abaixo), o sistema atualiza o estado do empréstimo para devolvido.  
+
+![update](https://raw.githubusercontent.com/andrefernandeslp1/biblioteca-web2/main/src/main/resources/static/imgs/Screen%20Shot%202024-04-08%20at%2001.51.12-fullpage.png)  
+
+**Delete:** Excluir usuário.  
+Ao clicar em excluir (ver imagem abaixo), o sistema excluirá o usuário do banco de dabos e todos os empréstimos associados a ele.  
+
+![delete](https://raw.githubusercontent.com/andrefernandeslp1/biblioteca-web2/main/src/main/resources/static/imgs/Screen%20Shot%202024-04-08%20at%2001.51.31-fullpage.png)  
 
 ## 7. Queries personalizadas
 1 - Listar autores cadastrados:  
