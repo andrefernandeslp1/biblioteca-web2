@@ -27,6 +27,7 @@ Para fazer a persistência dos dados e mapeamento objeto-relacional, foi utiliza
 Para o mapeamento objeto-relacional, foram criadas as seguintes entidades:  
 
 ### IMAGEM do mapeamento
+![mapeamento](https://raw.githubusercontent.com/andrefernandeslp1/biblioteca-web2/main/src/main/resources/static/imgs/mapeamento-bd.PNG)  
 
 ## 5. Operações CRUD
 
@@ -39,10 +40,12 @@ Read: Listar livros, autores, editoras, empréstimos ou usuários.
 Update: Alterar estado do empréstimo.  
 
 ### IMAGEM
+![update](https://raw.githubusercontent.com/andrefernandeslp1/biblioteca-web2/main/src/main/resources/static/imgs/Screen%20Shot%202024-04-08%20at%2001.51.12-fullpage.png)  
 
 Delete: Excluir usuário.  
 
 ### IMAGEM
+![delete](https://raw.githubusercontent.com/andrefernandeslp1/biblioteca-web2/main/src/main/resources/static/imgs/Screen%20Shot%202024-04-08%20at%2001.51.31-fullpage.png)  
 
 ## 6. Arquitetura MVC
 
@@ -50,22 +53,31 @@ Para a arquitetura MVC, foram criados os seguintes pacotes:
 
 Model: Responsável por representar as entidades do banco de dados.  
 ### IMAGEM
+![model](https://raw.githubusercontent.com/andrefernandeslp1/biblioteca-web2/main/src/main/resources/static/imgs/model.PNG)  
 
 View: Responsável por renderizar as páginas no lado do servidor.  
 Aqui, foram criadas apenas duas páginas:  
+![view](https://raw.githubusercontent.com/andrefernandeslp1/biblioteca-web2/main/src/main/resources/static/imgs/html.PNG)  
 
 menu.html:  
+![menu](https://raw.githubusercontent.com/andrefernandeslp1/biblioteca-web2/main/src/main/resources/static/imgs/Screen%20Shot%202024-04-08%20at%2001.51.51-fullpage.png)  
 Esta página é criada por padrão pelo Spring Boot e é uma espécie de porta de entrada para a aplicação.  
 
 index.html:  
+![index](https://raw.githubusercontent.com/andrefernandeslp1/biblioteca-web2/main/src/main/resources/static/imgs/Screen%20Shot%202024-04-08%20at%2001.48.43-fullpage.png)  
 Esta página é onde a ação acontece. Para exibir as informações do sistema utilizei uma abordagem de página única, na qual o trecho de html a ser exibido é determinado por uma informação passada pelo controller e manipulada pelo Thymeleaf, que utilizando a diretiva th:switch, exibe o código desejado.  
 
 Controller: Responsável pelas requisições e direcionamento das respostas.  
 ### IMAGEM
+![controller](https://raw.githubusercontent.com/andrefernandeslp1/biblioteca-web2/main/src/main/resources/static/imgs/controller.PNG)  
+
 Service: Responsável por desacoplar a aplicação das classes repositórios ou de regras de negócio.  
 ### IMAGEM
+![service](https://raw.githubusercontent.com/andrefernandeslp1/biblioteca-web2/main/src/main/resources/static/imgs/service.PNG)  
+
 Repository: Responsável por fazer a persistência dos dados.  
 ### IMAGEM
+![repository](https://raw.githubusercontent.com/andrefernandeslp1/biblioteca-web2/main/src/main/resources/static/imgs/repository.PNG)  
 
 ## 7. Personalização e Usabilidade
 
