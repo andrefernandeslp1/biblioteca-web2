@@ -32,10 +32,21 @@ Para o mapeamento objeto-relacional, foram criadas as seguintes entidades:
 
 Para a arquitetura MVC, foram criados os seguintes pacotes:  
 
-**Model:** Responsável por representar as entidades do banco de dados.  
+**Model:** 
+
+* **Entidades:** Responsável por representar as entidades do banco de dados.  
 ![model](https://raw.githubusercontent.com/andrefernandeslp1/biblioteca-web2/main/src/main/resources/static/imgs/model.PNG)  
 
-**View:** Responsável por renderizar as páginas no lado do servidor.  
+* **Service:** Responsável por desacoplar a aplicação das classes repositórios ou de regras de negócio.  
+![service](https://raw.githubusercontent.com/andrefernandeslp1/biblioteca-web2/main/src/main/resources/static/imgs/service.PNG)  
+
+* **Repository:** Responsável por fazer a persistência dos dados.  
+![repository](https://raw.githubusercontent.com/andrefernandeslp1/biblioteca-web2/main/src/main/resources/static/imgs/repository.PNG)  
+
+**Controller:** Responsável pelas requisições e direcionamento das respostas.  
+![controller](https://raw.githubusercontent.com/andrefernandeslp1/biblioteca-web2/main/src/main/resources/static/imgs/controller.PNG)  
+
+**View:** Responsável por renderizar as páginas.  
 Aqui, foram criadas apenas duas páginas:  
 ![view](https://raw.githubusercontent.com/andrefernandeslp1/biblioteca-web2/main/src/main/resources/static/imgs/html.PNG)  
 
@@ -46,15 +57,6 @@ Esta página (ver imagem acima) é criada por padrão pelo Spring Boot e é uma 
 **`index.html`**  
 ![index](https://raw.githubusercontent.com/andrefernandeslp1/biblioteca-web2/main/src/main/resources/static/imgs/Screen%20Shot%202024-04-08%20at%2001.48.43-fullpage.png)  
 Esta página (ver imagem acima) é onde a ação acontece. Para exibir as informações do sistema utilizei uma abordagem de página única, na qual o trecho de html a ser exibido é determinado por uma informação passada pelo controller e manipulada pelo Thymeleaf, que utilizando a diretiva th:switch, exibe o código desejado.  
-
-**Controller:** Responsável pelas requisições e direcionamento das respostas.  
-![controller](https://raw.githubusercontent.com/andrefernandeslp1/biblioteca-web2/main/src/main/resources/static/imgs/controller.PNG)  
-
-**Service:** Responsável por desacoplar a aplicação das classes repositórios ou de regras de negócio.  
-![service](https://raw.githubusercontent.com/andrefernandeslp1/biblioteca-web2/main/src/main/resources/static/imgs/service.PNG)  
-
-**Repository:** Responsável por fazer a persistência dos dados.  
-![repository](https://raw.githubusercontent.com/andrefernandeslp1/biblioteca-web2/main/src/main/resources/static/imgs/repository.PNG)  
 
 ## 6. Operações CRUD
 
