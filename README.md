@@ -19,7 +19,7 @@ O objetivo do projeto é desenvolver um sistema web backend, utilizando a arquit
 
 ## 3. Proposta
 
-Desenvolver um sistema web backend para administração empréstimos em uma biblioteca, utilizando o framework Spring, o template engine Thymeleaf para renderização de páginas no lado do servidor e o banco de dados PostgreSQL.  
+Desenvolver um sistema web backend para administração empréstimos em uma biblioteca, utilizando o framework Spring, o template engine Thymeleaf para renderização de páginas e o banco de dados PostgreSQL.  
 Para fazer a persistência dos dados e mapeamento objeto-relacional, foi utilizado o Spring Data JPA com JpaRepository.  
 
 ## 4. Mapeamento Objeto-Relacional
