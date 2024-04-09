@@ -95,9 +95,9 @@ Ao clicar em `Excluir` (ver imagem abaixo), o sistema excluirá o usuário do ba
 
 ## 9. Conclusão
 
-O spring boot se mostrou uma ferramenta poderosa para o desenvolvimento de sistemas web backend, pois facilita a configuração e o desenvolvimento das aplicações.  
-O Thymeleaf também se mostrou uma ferramenta bastante útil, pois diminui significativamente a quantidade de código que precisa ser escrito para manipular os dados e renderizar as páginas.  
-O spring data jpa facilitou a comunicação com o banco de dados, pois introduz uma camada de abstração que dispensa a necessidade de escrever queries SQL.  
+O **spring boot** se mostrou uma ferramenta poderosa para o desenvolvimento de sistemas web backend, pois facilita a configuração e o desenvolvimento das aplicações.  
+O **Thymeleaf** também se mostrou uma ferramenta bastante útil, pois diminui significativamente a quantidade de código que precisa ser escrito para manipular os dados e renderizar as páginas.  
+O **spring data jpa** facilitou a comunicação com o banco de dados, pois introduz uma camada de abstração que dispensa a necessidade de escrever queries SQL.  
 
 ## 10. Referências
 
