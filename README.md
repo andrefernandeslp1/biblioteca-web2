@@ -56,7 +56,7 @@ Esta página (ver imagem acima) é criada por padrão pelo Spring Boot e é uma 
 
 **`index.html`**  
 ![index](https://raw.githubusercontent.com/andrefernandeslp1/biblioteca-web2/main/src/main/resources/static/imgs/Screen%20Shot%202024-04-08%20at%2001.48.43-fullpage.png)  
-Esta página (ver imagem acima) é onde a ação acontece. Para exibir as informações do sistema utilizei uma abordagem de página única, na qual o trecho de html a ser exibido é determinado por uma informação passada pelo controller e manipulada pelo Thymeleaf, que utilizando a diretiva th:switch, exibe o código desejado.  
+Esta página (ver imagem acima) é onde a ação acontece. Para exibir as informações do sistema foi utilizada uma abordagem de página única, na qual o trecho de html a ser exibido é determinado por uma informação passada pelo controller e manipulada pelo Thymeleaf, que utilizando a diretiva th:switch, exibe o código desejado.  
 
 ## 6. Operações CRUD
 
@@ -95,9 +95,9 @@ Ao clicar em `Excluir` (ver imagem abaixo), o sistema excluirá o usuário do ba
 
 ## 9. Conclusão
 
-O projeto foi desenvolvido com sucesso, atendendo aos critérios de avaliação propostos, alguns mais desenvolvidos que outros, mas todos presentes.  
-O sistema não foi testado a exaustão, então alguns bugs podem ter passado despercebidos.
-Não obstante, todos os erros encontrados foram corrigidos e o sistema está funcional.  
+O spring boot se mostrou uma ferramenta poderosa para o desenvolvimento de sistemas web backend, pois facilita a configuração e o desenvolvimento das aplicações.  
+O Thymeleaf também se mostrou uma ferramenta bastante útil, pois diminui significativamente a quantidade de código que precisa ser escrito para manipular os dados e renderizar as páginas.  
+O spring data jpa facilitou a comunicação com o banco de dados, pois introduz uma camada de abstração que facilita a persistência dos dados.  
 
 ## 10. Referências
 
