@@ -11,11 +11,11 @@
 
 ## 1. Introdução
 
-O projeto consiste em um sistema web backend para um sistema de administração de biblioteca utilizando o framework Spring, o template engine Thymeleaf para renderização de páginas no lado do servidor e o banco de dados PostgreSQL.
+O projeto consiste em um sistema web backend para um sistema de administração de biblioteca utilizando o framework Spring, o template engine Thymeleaf para renderização de páginas no lado do servidor e o banco de dados PostgreSQL.  
 
 ## 2. Objetivo
 
-O objetivo do projeto é desenvolver um sistema web backend, utilizando a arquitetura MVC, para o sistema de administração de uma biblioteca, incluindo persistência de dados em um BD SQL e um front-end simples para interação com o usuário.
+O objetivo do projeto é desenvolver um sistema web backend, utilizando a arquitetura MVC, para o sistema de administração de uma biblioteca, incluindo persistência de dados em um BD SQL e um front-end simples para interação com o usuário.  
 
 ## 3. Proposta
 
@@ -32,9 +32,9 @@ Para o mapeamento objeto-relacional, foram criadas as seguintes entidades:
 
 Para a arquitetura MVC, foram criados os seguintes pacotes:  
 
-**Model:** 
+**Model:**
 
-* **Entidades:** Responsável por representar as entidades do banco de dados.  
+* **Entidades:** Responsável por representar as entidades do banco de dados. Regras de negócio.  
 ![model](https://raw.githubusercontent.com/andrefernandeslp1/biblioteca-web2/main/src/main/resources/static/imgs/model.PNG)  
 
 * **Service:** Responsável por desacoplar a aplicação das classes repositórios ou de regras de negócio.  
@@ -43,10 +43,10 @@ Para a arquitetura MVC, foram criados os seguintes pacotes:
 * **Repository:** Responsável por fazer a persistência dos dados.  
 ![repository](https://raw.githubusercontent.com/andrefernandeslp1/biblioteca-web2/main/src/main/resources/static/imgs/repository.PNG)  
 
-**Controller:** Responsável pelas requisições e direcionamento das respostas.  
+**Controller:** Responsável por fazer a ponte entre a camada view e a camada model.  
 ![controller](https://raw.githubusercontent.com/andrefernandeslp1/biblioteca-web2/main/src/main/resources/static/imgs/controller.PNG)  
 
-**View:** Responsável por renderizar as páginas.  
+**View:** É a camada de apresentação do sistema, onde o usuário interage com a aplicação.  
 Aqui, foram criadas apenas duas páginas:  
 ![view](https://raw.githubusercontent.com/andrefernandeslp1/biblioteca-web2/main/src/main/resources/static/imgs/html.PNG)  
 
